@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
 
         // Create a label and text field for the username
         JLabel usernameLabel = new JLabel("Username:");
-        usernameLabel.setForeground(Color.BLACK);
+        usernameLabel.setForeground(Color.WHITE);
         usernameLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
         JTextField usernameTextField = new JTextField(20);
@@ -61,7 +61,7 @@ public class MainFrame extends JFrame {
 
         // Create a label and text field for the password
         JLabel passwordLabel = new JLabel("Password:");
-        passwordLabel.setForeground(Color.BLACK);
+        passwordLabel.setForeground(Color.WHITE);
         passwordLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
         JTextField passwordTextField = new JTextField(20);
@@ -91,6 +91,37 @@ public class MainFrame extends JFrame {
         GridBagConstraints gbcPasswordTextField = new GridBagConstraints();
         itemPosition(gbcPasswordTextField, 0, 1, 2, 0,-160,-70, 0, GridBagConstraints.LINE_START);
         loginPanel.add(passwordTextField, gbcPasswordTextField);
+
+        // Create a label for "Forgot your password?"
+        JLabel infoLabel = new JLabel("Forgot your password?");
+        infoLabel.setForeground(Color.BLACK);
+        infoLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+
+        // Set the position of the infoLabel
+        GridBagConstraints gbcInfo = new GridBagConstraints();
+        gbcInfo.gridx = 0;
+        gbcInfo.gridy = 1; // Adjust this as needed
+        gbcInfo.anchor = GridBagConstraints.CENTER;
+        gbcInfo.insets = new Insets(40, 0, 0, 0);
+
+        // Add the infoLabel to the backgroundLabel.
+        backgroundLabel.add(infoLabel, gbcInfo);
+
+
+        JLabel secondLabel = new JLabel("Don't have an account yet? Create one.");
+        secondLabel.setForeground(Color.BLACK);
+        secondLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+
+// Set the position of the secondLabel
+        GridBagConstraints gbcSecond = new GridBagConstraints();
+        gbcSecond.gridx = 0;
+        gbcSecond.gridy = 2; // This should be one more than infoLabel's gridy to place it below infoLabel
+        gbcSecond.anchor = GridBagConstraints.CENTER;
+        gbcSecond.insets = new Insets(20, 0, 0, 0); // Adjust the top spacing as needed
+
+// Add the secondLabel to the backgroundLabel.
+        backgroundLabel.add(secondLabel, gbcSecond);
+
 
 
 
