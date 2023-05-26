@@ -1,11 +1,16 @@
 package org.example;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
     public static void main(String[] args) {
         new MainFrame().setVisible(true);
-
 
         LocalDate eugenBirthDate = LocalDate.of(2000, 5, 24); // May 24th, 2000
         Person eugen = new Patient("Eugen", eugenBirthDate, "masculine",

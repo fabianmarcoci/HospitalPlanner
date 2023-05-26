@@ -3,16 +3,21 @@ package org.example;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.sql.Connection;
 
 public class MainFrame extends JFrame {
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private final int width = screenSize.width;
     private final int height = screenSize.height;
+    private JTextField passwordTextField;
+    private JTextField usernameTextField;
 
     public MainFrame() {
         super("HospitalPlanner");
+
         init();
     }
 
@@ -53,18 +58,18 @@ public class MainFrame extends JFrame {
 
         // Create a label and text field for the username
         JLabel usernameLabel = new JLabel("Username:");
-        usernameLabel.setForeground(Color.BLACK);
+        usernameLabel.setForeground(Color.WHITE);
         usernameLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
-        JTextField usernameTextField = new JTextField(20);
+        usernameTextField = new JTextField(20);
         ((AbstractDocument) usernameTextField.getDocument()).setDocumentFilter(new CharacterLimitText(15));
 
         // Create a label and text field for the password
         JLabel passwordLabel = new JLabel("Password:");
-        passwordLabel.setForeground(Color.BLACK);
+        passwordLabel.setForeground(Color.WHITE);
         passwordLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
-        JTextField passwordTextField = new JTextField(20);
+        passwordTextField = new JTextField(20);
         ((AbstractDocument) passwordTextField.getDocument()).setDocumentFilter(new CharacterLimitText(15));
 
         // Set placeholder text for the text fields
@@ -92,7 +97,29 @@ public class MainFrame extends JFrame {
         itemPosition(gbcPasswordTextField, 0, 1, 2, 0,-160,-70, 0, GridBagConstraints.LINE_START);
         loginPanel.add(passwordTextField, gbcPasswordTextField);
 
+        // Create a label for "Forgot your password?"
+        JLabel infoLabel = new JLabel("Forgot your password?");
+        infoLabel.setForeground(Color.BLACK);
+        infoLabel.setFont(new Font("Arial", Font.PLAIN, 15));
 
+        // Set the position of the infoLabel
+        GridBagConstraints gbcInfo = new GridBagConstraints();
+        itemPosition(gbcInfo, 0, 1, 2, 10, 0, 0, 0, GridBagConstraints.CENTER);
+
+
+        // Add the infoLabel to the backgroundLabel.
+        backgroundLabel.add(infoLabel, gbcInfo);
+
+
+        JLabel secondLabel = new JLabel("Don't have an account yet? Create one.");
+        secondLabel.setForeground(Color.BLACK);
+        secondLabel.setFont(new Font("Arial", Font.PLAIN, 17));
+
+        // Set the position of the secondLabel
+        GridBagConstraints gbcSecond = new GridBagConstraints();
+        itemPosition(gbcSecond, 0, 2, 2, 0, 0, 0, 0, GridBagConstraints.CENTER);
+        // Add the secondLabel to the backgroundLabel.
+        backgroundLabel.add(secondLabel, gbcSecond);
 
         // Add the loginPanel to the center of the backgroundLabel.
         backgroundLabel.add(loginPanel);
@@ -105,6 +132,8 @@ public class MainFrame extends JFrame {
         // Define the size of the window when it's minimized
         setPreferredSize(new Dimension(800, 600));
 
+        submitBtn.addActionListener(this::submitLogin);
+
         pack();
     }
 
@@ -115,6 +144,19 @@ public class MainFrame extends JFrame {
         gbc.insets = new Insets(top, left, bottom, right);
         gbc.anchor = anchor;
     }
+
+    private void submitLogin(ActionEvent e) {
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+
+        boolean loginSuccess = AccountManager.submitLogin(username, password);
+        if (loginSuccess) {
+            // Proceed with logged-in user
+        } else {
+            System.out.println("Failed to login.");
+        }
+    }
+
     private void changeFocus(JTextField placeHolder) {
         String text = placeHolder.getText();
 
@@ -135,3 +177,12 @@ public class MainFrame extends JFrame {
         });
     }
 }
+
+
+
+
+
+
+
+
+
