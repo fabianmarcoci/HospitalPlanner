@@ -3,8 +3,8 @@ import java.time.LocalDate;
 public class Patient extends Person{
     private String disease;
 
-    public Patient(String name, LocalDate birthDate, String sex, String citizenship, String disease) {
-        super(name, birthDate, sex, citizenship);
+    public Patient(String name, LocalDate birthDate, String gender, String citizenship, String mail, String disease) {
+        super(name, birthDate, gender, citizenship, mail);
         this.disease = disease;
     }
 

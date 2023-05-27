@@ -7,14 +7,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
-import javax.sql.DataSource;
-
 public class Database {
     private static final Logger logger = LoggerFactory.getLogger(Database.class);
-    private static final String URL = "jdbc:postgresql://hospitalplanner.c3n7lwwq3qqb.eu-north-1.rds.amazonaws.com:5432/postgres";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "Vladut.01";
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
     static {
         try {

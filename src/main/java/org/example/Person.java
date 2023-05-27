@@ -7,13 +7,15 @@ public abstract class Person {
     private String name;
     private int age;
     private LocalDate birthDate;
-    private String sex;
+    private String gender;
     private String citizenship;
-    public Person(String name, LocalDate birthDate, String sex, String citizenship) {
+    private String mail;
+    public Person(String name, LocalDate birthDate, String gender, String citizenship, String mail) {
         this.name = name;
         this.birthDate = birthDate;
-        this.sex = sex;
+        this.gender = gender;
         this.citizenship = citizenship;
+        this.mail = mail;
     }
 
     public int getAge() {
@@ -43,12 +45,12 @@ public abstract class Person {
         return birthDate;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getCitizenship() {
@@ -59,13 +61,22 @@ public abstract class Person {
         this.citizenship = citizenship;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
     @Override
     public String toString() {
         return  "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + getAge() +
                 ", birthDate=" + birthDate +
-                ", sex='" + sex + '\'' +
-                ", citizenship='" + citizenship + '\'';
+                ", gender='" + gender + '\'' +
+                ", citizenship='" + citizenship + '\'' +
+                ", mail='" + mail + '\'';
     }
 }

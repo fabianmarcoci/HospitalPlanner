@@ -6,10 +6,10 @@ public class Doctor extends Person {
     private LocalDate startedWorkingAt;
     private int yearsOfExperience;
 
-    public Doctor(String name, LocalDate birthDate, String sex,
-                  String citizenship, String specialization, LocalDate startedWorkingAt) {
+    public Doctor(String name, LocalDate birthDate, String gender,
+                  String citizenship, String mail, String specialization, LocalDate startedWorkingAt) {
 
-        super(name, birthDate, sex, citizenship);
+        super(name, birthDate, gender, citizenship, mail);
         this.specialization = specialization;
         this.startedWorkingAt = startedWorkingAt;
     }

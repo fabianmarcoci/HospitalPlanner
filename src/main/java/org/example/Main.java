@@ -10,16 +10,22 @@ import org.slf4j.LoggerFactory;
 
 public class Main {
     public static void main(String[] args) {
+        new Thread(() -> {
+            Server server = new Server();
+            server.startServer();
+        }).start();
+
         new MainFrame().setVisible(true);
 
-        LocalDate eugenBirthDate = LocalDate.of(2000, 5, 24); // May 24th, 2000
-        Person eugen = new Patient("Eugen", eugenBirthDate, "masculine",
-                "romanian", "lung problems");
-        System.out.println(eugen);
+        LocalDate fabianBirthDate = LocalDate.of(2002, 8, 25); // August 25th, 2002
+        Person fabian = new Patient("Fabian", fabianBirthDate, "masculine",
+                "romanian", "marcocifabian16@gmail.com", "lung problems");
+        System.out.println(fabian);
 
-        LocalDate mihailBirthDate = LocalDate.of(1984, 10, 21); // October 21st, 1984
-        LocalDate mihailDebut = LocalDate.of(2010, 11, 15);
-        Person mihail = new Doctor("Mihail", mihailBirthDate, "masculine", "romanian", "lung", mihailDebut);
-        System.out.println(mihail);
+        LocalDate vladBirthDate = LocalDate.of(2003, 1, 10); // January 10th, 1985
+        LocalDate vladDebut = LocalDate.of(2010, 11, 15);
+        Person vlad = new Doctor("Vlad", vladBirthDate, "masculine", "romanian",
+                "vladalexandrugheras@yahoo.com", "lung", vladDebut);
+        System.out.println(vlad);
     }
 }

@@ -3,9 +3,7 @@ package org.example;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
 import java.sql.Connection;
 
 public class MainFrame extends JFrame {
@@ -69,7 +67,7 @@ public class MainFrame extends JFrame {
         passwordLabel.setForeground(Color.WHITE);
         passwordLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
-        passwordTextField = new JTextField(20);
+        passwordTextField = new JPasswordField(20);
         ((AbstractDocument) passwordTextField.getDocument()).setDocumentFilter(new CharacterLimitText(15));
 
         // Set placeholder text for the text fields
@@ -80,27 +78,28 @@ public class MainFrame extends JFrame {
 
         // Set the position of the usernameLabel and usernameTextField
         GridBagConstraints gbcUsernameLabel = new GridBagConstraints();
-        itemPosition(gbcUsernameLabel, 0, 0, 2, -70,-160,0, 0, GridBagConstraints.LINE_START);
+        itemPosition(gbcUsernameLabel, 0, 0, 2, -70,0,0, 0, GridBagConstraints.CENTER);
         loginPanel.add(usernameLabel, gbcUsernameLabel);
 
         GridBagConstraints gbcUsernameTextField = new GridBagConstraints();
-        itemPosition(gbcUsernameTextField, 0, 1, 2, -25,-160,0, 0, GridBagConstraints.LINE_START);
+        itemPosition(gbcUsernameTextField, 0, 1, 2, -25,0,0, 0, GridBagConstraints.CENTER);
         loginPanel.add(usernameTextField, gbcUsernameTextField);
 
         // Set the position of the passwordLabel and passwordTextField
         GridBagConstraints gbcPasswordLabel = new GridBagConstraints();
-        itemPosition(gbcPasswordLabel, 0, 0, 2, 0,-160,-25, 0, GridBagConstraints.LINE_START);
+        itemPosition(gbcPasswordLabel, 0, 0, 2, 0,0,-25, 0, GridBagConstraints.CENTER);
         loginPanel.add(passwordLabel, gbcPasswordLabel);
 
-
         GridBagConstraints gbcPasswordTextField = new GridBagConstraints();
-        itemPosition(gbcPasswordTextField, 0, 1, 2, 0,-160,-70, 0, GridBagConstraints.LINE_START);
+        itemPosition(gbcPasswordTextField, 0, 1, 2, 0,0,-70, 0, GridBagConstraints.CENTER);
         loginPanel.add(passwordTextField, gbcPasswordTextField);
 
         // Create a label for "Forgot your password?"
         JLabel infoLabel = new JLabel("Forgot your password?");
         infoLabel.setForeground(Color.BLACK);
         infoLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+
+        addClickListenerToLabel(infoLabel, "ForgotPass");
 
         // Set the position of the infoLabel
         GridBagConstraints gbcInfo = new GridBagConstraints();
@@ -114,6 +113,8 @@ public class MainFrame extends JFrame {
         JLabel secondLabel = new JLabel("Don't have an account yet? Create one.");
         secondLabel.setForeground(Color.BLACK);
         secondLabel.setFont(new Font("Arial", Font.PLAIN, 17));
+
+        addClickListenerToLabel(secondLabel, "GoToRegister");
 
         // Set the position of the secondLabel
         GridBagConstraints gbcSecond = new GridBagConstraints();
@@ -149,12 +150,45 @@ public class MainFrame extends JFrame {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
-        boolean loginSuccess = AccountManager.submitLogin(username, password);
-        if (loginSuccess) {
+        Client client = new Client("localhost", 1234);
+        String response = client.sendLogin(username, password);
+        client.closeConnection();
+
+        if ("login success".equals(response)) {
             // Proceed with logged-in user
         } else {
             System.out.println("Failed to login.");
         }
+    }
+
+    private void addClickListenerToLabel(JLabel label, String actionCommand) {
+        // Make the cursor appear as a hand whenever it's over the JLabel
+        label.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if ("ForgotPass".equals(actionCommand)) {
+                    System.out.println("Forgot Password executed.");
+                    SendMail mail = new SendMail("marcocifabian16@gmail.com");
+                    //TODO
+                } else if ("GoToRegister".equals(actionCommand)) {
+                    System.out.println("Go to register executed.");
+                    //TODO
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                label.setForeground(Color.BLUE);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                label.setForeground(Color.BLACK);
+            }
+        });
+
     }
 
     private void changeFocus(JTextField placeHolder) {

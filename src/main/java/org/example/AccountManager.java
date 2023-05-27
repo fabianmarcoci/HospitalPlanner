@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Database;
+import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,18 +14,26 @@ public class AccountManager {
         Connection connection = Database.getConnection();
         try {
             // Using a PreparedStatement to prevent SQL injection
-            String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+            String query = "SELECT * FROM users WHERE username = ?";
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setString(1, username);
-            pstmt.setString(2, password);
 
             ResultSet resultSet = pstmt.executeQuery();
 
             if (resultSet.next()) {
-                logger.info("Login successful for user: " + username);
-                return true;
+                // Retrieve the hashed password from the database
+                String storedHashedPassword = resultSet.getString("password_hash");
+
+                // Compare the entered password with the stored hashed password
+                if (BCrypt.checkpw(password, storedHashedPassword)) {
+                    logger.info("Login successful for user: " + username);
+                    return true;
+                } else {
+                    logger.info("Invalid password for user: " + username);
+                    return false;
+                }
             } else {
-                logger.info("Invalid username/password for user: " + username);
+                logger.info("Invalid username: " + username);
                 return false;
             }
 
