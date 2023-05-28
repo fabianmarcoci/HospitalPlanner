@@ -1,4 +1,4 @@
-package org.example;
+package org.example.HospitalPlanner;
 import java.time.LocalDate;
 import java.time.Period;
 public class Doctor extends Person {

@@ -1,17 +1,28 @@
-package org.example;
+package org.example.HospitalPlanner;
 
-import org.example.Database;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+@Service
 public class AccountManager {
+    private final Logger logger = LoggerFactory.getLogger(AccountManager.class);
 
-    public static boolean submitLogin(String username, String password) {
-        final Logger logger = LoggerFactory.getLogger(AccountManager.class);
-        Connection connection = Database.getConnection();
+    private final Connection connection;
+
+    @Autowired
+    public AccountManager(Connection connection) {
+        this.connection = connection;
+    }
+
+    public boolean submitLogin(String username, String password) {
         try {
             // Using a PreparedStatement to prevent SQL injection
             String query = "SELECT * FROM users WHERE username = ?";
@@ -39,8 +50,6 @@ public class AccountManager {
 
         } catch (SQLException e) {
             logger.error("Failed to execute query", e);
-        } finally {
-            Database.closeConnection(connection);
         }
 
         return false;

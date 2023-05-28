@@ -1,12 +1,15 @@
-package org.example;
+package org.example.HospitalPlanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@Configuration
 public class Database {
     private static final Logger logger = LoggerFactory.getLogger(Database.class);
     private static final String URL = System.getenv("DB_URL");
@@ -22,10 +25,8 @@ public class Database {
         }
     }
 
-    private Database() {
-    }
-
-    public static Connection getConnection() {
+    @Bean
+    public Connection getConnection() {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -34,25 +35,4 @@ public class Database {
         }
         return connection;
     }
-
-    public static void closeConnection(Connection connection) {
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            logger.error("Failed to close database connection", e);
-        }
-    }
-
-    public static void rollback(Connection connection) {
-        try {
-            if (connection != null) {
-                connection.rollback();
-            }
-        } catch (SQLException e) {
-            logger.error("Failed to rollback transaction", e);
-        }
-    }
 }
-

@@ -1,10 +1,13 @@
-package org.example;
+package org.example.HospitalPlanner;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainFrame extends JFrame {
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -12,11 +15,13 @@ public class MainFrame extends JFrame {
     private final int height = screenSize.height;
     private JTextField passwordTextField;
     private JTextField usernameTextField;
+    private final int maxCharacterLength = 15;
 
     public MainFrame() {
         super("HospitalPlanner");
 
         init();
+        removeDefaultFocus();
     }
 
     private void init() {
@@ -60,7 +65,7 @@ public class MainFrame extends JFrame {
         usernameLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
         usernameTextField = new JTextField(20);
-        ((AbstractDocument) usernameTextField.getDocument()).setDocumentFilter(new CharacterLimitText(15));
+        ((AbstractDocument) usernameTextField.getDocument()).setDocumentFilter(new CharacterLimitText(maxCharacterLength));
 
         // Create a label and text field for the password
         JLabel passwordLabel = new JLabel("Password:");
@@ -68,13 +73,17 @@ public class MainFrame extends JFrame {
         passwordLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
         passwordTextField = new JPasswordField(20);
-        ((AbstractDocument) passwordTextField.getDocument()).setDocumentFilter(new CharacterLimitText(15));
+        ((AbstractDocument) passwordTextField.getDocument()).setDocumentFilter(new CharacterLimitText(maxCharacterLength));
+
+        removeErrorSound(usernameTextField);
+        removeErrorSound(passwordTextField);
 
         // Set placeholder text for the text fields
         usernameTextField.setText("Username");
         passwordTextField.setText("Password");
-        changeFocus(usernameTextField);
-        changeFocus(passwordTextField);
+        changeFocus(usernameTextField, "Username");
+        changeFocus(passwordTextField, "Password");
+
 
         // Set the position of the usernameLabel and usernameTextField
         GridBagConstraints gbcUsernameLabel = new GridBagConstraints();
@@ -170,7 +179,7 @@ public class MainFrame extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 if ("ForgotPass".equals(actionCommand)) {
                     System.out.println("Forgot Password executed.");
-                    SendMail mail = new SendMail("marcocifabian16@gmail.com");
+                    SendMail mail = new SendMail("lacrafab@gmail.com");
                     //TODO
                 } else if ("GoToRegister".equals(actionCommand)) {
                     System.out.println("Go to register executed.");
@@ -191,13 +200,35 @@ public class MainFrame extends JFrame {
 
     }
 
-    private void changeFocus(JTextField placeHolder) {
-        String text = placeHolder.getText();
+    private void removeDefaultFocus() {
+        this.addWindowFocusListener(new WindowAdapter() {
+            public void windowGainedFocus(WindowEvent e) {
+                MainFrame.this.requestFocusInWindow();
+            }
+        });
+    }
+
+    private void removeErrorSound(JTextField field) {
+        field.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && field.getText().isEmpty()) {
+                    e.consume();
+                }
+                if (field.getText().length() >= maxCharacterLength && e.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
+                    e.consume();
+                }
+            }
+        });
+    }
+
+    private void changeFocus(JTextField placeHolder, String placeholderText) {
+        AtomicBoolean userHasEdited = new AtomicBoolean(false);
 
         placeHolder.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (placeHolder.getText().equals(placeHolder.getText())) {
+                if (!userHasEdited.get() && placeHolder.getText().equals(placeholderText)) {
                     placeHolder.setText("");
                 }
             }
@@ -205,11 +236,30 @@ public class MainFrame extends JFrame {
             @Override
             public void focusLost(FocusEvent e) {
                 if (placeHolder.getText().isEmpty()) {
-                    placeHolder.setText(text);
+                    placeHolder.setText(placeholderText);
+                    userHasEdited.set(false);
                 }
             }
         });
+
+        placeHolder.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                userHasEdited.set(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                userHasEdited.set(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                userHasEdited.set(true);
+            }
+        });
     }
+
 }
 
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.HospitalPlanner;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;

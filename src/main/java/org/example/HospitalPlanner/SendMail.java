@@ -1,4 +1,4 @@
-package org.example;
+package org.example.HospitalPlanner;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

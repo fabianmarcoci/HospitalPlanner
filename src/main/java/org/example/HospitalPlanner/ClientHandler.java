@@ -1,4 +1,4 @@
-package org.example;
+package org.example.HospitalPlanner;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,8 @@ public class ClientHandler implements Runnable {
             String username = in.readLine();
             String password = in.readLine();
 
-            boolean loginSuccess = AccountManager.submitLogin(username, password);
+            AccountManager accountManager = ApplicationContextProvider.getApplicationContext().getBean(AccountManager.class);
+            boolean loginSuccess = accountManager.submitLogin(username, password);
 
             if (loginSuccess) {
                 out.println("login success");
@@ -38,4 +39,3 @@ public class ClientHandler implements Runnable {
         }
     }
 }
-

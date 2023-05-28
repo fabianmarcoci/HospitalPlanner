@@ -1,4 +1,4 @@
-package org.example;
+package org.example.HospitalPlanner;
 
 import java.io.IOException;
 import java.net.ServerSocket;
