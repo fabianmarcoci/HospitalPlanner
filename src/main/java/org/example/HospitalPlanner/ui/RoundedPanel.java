@@ -1,4 +1,4 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.ui;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,6 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.service.network;
+
+import org.example.HospitalPlanner.service.network.ClientHandler;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -1,4 +1,6 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.model;
+import org.example.HospitalPlanner.model.Person;
+
 import java.time.LocalDate;
 import java.time.Period;
 public class Doctor extends Person {

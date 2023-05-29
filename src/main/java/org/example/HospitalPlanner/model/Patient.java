@@ -1,6 +1,8 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.model;
+import org.example.HospitalPlanner.model.Person;
+
 import java.time.LocalDate;
-public class Patient extends Person{
+public class Patient extends Person {
     private String disease;
 
     public Patient(String name, LocalDate birthDate, String gender, String citizenship, String mail, String disease) {

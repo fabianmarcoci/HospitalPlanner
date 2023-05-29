@@ -1,4 +1,4 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.service.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;

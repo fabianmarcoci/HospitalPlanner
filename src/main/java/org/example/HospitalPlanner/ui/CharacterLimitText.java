@@ -1,4 +1,4 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.ui;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;

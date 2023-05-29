@@ -1,4 +1,7 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.ui;
+
+import org.example.HospitalPlanner.service.SendMail;
+import org.example.HospitalPlanner.service.network.Client;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -6,7 +9,6 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainFrame extends JFrame {
@@ -261,12 +263,3 @@ public class MainFrame extends JFrame {
     }
 
 }
-
-
-
-
-
-
-
-
-

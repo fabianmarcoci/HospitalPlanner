@@ -1,4 +1,4 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.service;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;

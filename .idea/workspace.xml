@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -52,7 +53,7 @@
         <env name="MAIL_PASSWORD" value="hospserv1" />
         <env name="MAIL_USER" value="HospitalPlannerServices@outlook.com" />
       </envs>
-      <option name="MAIN_CLASS_NAME" value="org.example.HospitalPlanner.Main" />
+      <option name="MAIN_CLASS_NAME" value="org.example.HospitalPlanner.Application" />
       <module name="HospitalPlanner" />
       <option name="VM_PARAMETERS" value="-Djava.awt.headless=false" />
       <method v="2">

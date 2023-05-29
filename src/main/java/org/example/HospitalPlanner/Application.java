@@ -1,21 +1,21 @@
 package org.example.HospitalPlanner;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.example.HospitalPlanner.model.Doctor;
+import org.example.HospitalPlanner.model.Patient;
+import org.example.HospitalPlanner.model.Person;
+import org.example.HospitalPlanner.service.network.Server;
+import org.example.HospitalPlanner.ui.MainFrame;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.swing.*;
 
 @SpringBootApplication
-public class Main {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(Application.class, args);
 
         SwingUtilities.invokeLater(() -> {
             new MainFrame().setVisible(true);

@@ -1,8 +1,14 @@
-package org.example.HospitalPlanner;
+package org.example.HospitalPlanner.model;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
+@Entity
+@Table(name = "persons")
 public abstract class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private int age;
@@ -27,10 +33,6 @@ public abstract class Person {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
