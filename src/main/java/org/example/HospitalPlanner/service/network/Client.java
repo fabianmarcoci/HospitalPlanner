@@ -28,6 +28,11 @@ public class Client {
         String response = "";
         try {
             response = in.readLine();
+            if(response.equals("Failed")) {
+                System.out.println("Failed to login.");
+            } else {
+                System.out.println("Logged in as: " + response);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -26,12 +26,12 @@ public class ClientHandler implements Runnable {
             String password = in.readLine();
 
             AccountManager accountManager = ApplicationContextProvider.getApplicationContext().getBean(AccountManager.class);
-            boolean loginSuccess = accountManager.submitLogin(username, password);
+            String role = accountManager.submitLogin(username, password);
 
-            if (loginSuccess) {
-                out.println("login success");
+            if (role != null) {
+                out.println(role);
             } else {
-                out.println("login failed");
+                out.println("Failed");
             }
 
             in.close();

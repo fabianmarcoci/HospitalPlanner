@@ -162,15 +162,25 @@ public class MainFrame extends JFrame {
         String password = passwordTextField.getText();
 
         Client client = new Client("localhost", 1234);
-        String response = client.sendLogin(username, password);
+        String role = client.sendLogin(username, password);
         client.closeConnection();
 
-        if ("login success".equals(response)) {
-            // Proceed with logged-in user
+        if (role != null) {
+            switch (role) {
+                case "doctor":
+                    // Open doctor form
+                    break;
+                case "patient":
+                    // Open patient form
+                    break;
+                default:
+                    System.out.println("Failed to identify the role.");
+            }
         } else {
             System.out.println("Failed to login.");
         }
     }
+
 
     private void addClickListenerToLabel(JLabel label, String actionCommand) {
         // Make the cursor appear as a hand whenever it's over the JLabel

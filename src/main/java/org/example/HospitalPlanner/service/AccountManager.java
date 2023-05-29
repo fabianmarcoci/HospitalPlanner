@@ -22,9 +22,8 @@ public class AccountManager {
         this.connection = connection;
     }
 
-    public boolean submitLogin(String username, String password) {
+    public String submitLogin(String username, String password) {
         try {
-            // Using a PreparedStatement to prevent SQL injection
             String query = "SELECT * FROM users WHERE username = ?";
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setString(1, username);
@@ -32,26 +31,23 @@ public class AccountManager {
             ResultSet resultSet = pstmt.executeQuery();
 
             if (resultSet.next()) {
-                // Retrieve the hashed password from the database
                 String storedHashedPassword = resultSet.getString("password_hash");
 
-                // Compare the entered password with the stored hashed password
                 if (BCrypt.checkpw(password, storedHashedPassword)) {
                     logger.info("Login successful for user: " + username);
-                    return true;
+                    // Return the user's role
+                    return resultSet.getString("role");
                 } else {
                     logger.info("Invalid password for user: " + username);
-                    return false;
                 }
             } else {
                 logger.info("Invalid username: " + username);
-                return false;
             }
 
         } catch (SQLException e) {
             logger.error("Failed to execute query", e);
         }
 
-        return false;
+        return null;
     }
 }
