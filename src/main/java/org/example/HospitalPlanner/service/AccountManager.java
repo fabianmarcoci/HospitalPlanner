@@ -24,7 +24,7 @@ public class AccountManager {
 
     public String submitLogin(String username, String password) {
         try {
-            String query = "SELECT * FROM users WHERE username = ?";
+            String query = "SELECT * FROM person WHERE username = ?";
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setString(1, username);
 

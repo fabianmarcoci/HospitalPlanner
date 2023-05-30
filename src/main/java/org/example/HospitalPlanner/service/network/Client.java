@@ -29,7 +29,7 @@ public class Client {
         try {
             response = in.readLine();
             if(response.equals("Failed")) {
-                System.out.println("Failed to login.");
+                return null;
             } else {
                 System.out.println("Logged in as: " + response);
             }

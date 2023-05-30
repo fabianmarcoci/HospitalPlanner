@@ -177,7 +177,7 @@ public class MainFrame extends JFrame {
                     System.out.println("Failed to identify the role.");
             }
         } else {
-            System.out.println("Failed to login.");
+            System.out.println("Still in the login panel.");
         }
     }
 
