@@ -1,12 +1,14 @@
 package org.example.HospitalPlanner.model;
-import org.example.HospitalPlanner.model.Person;
 
 import java.time.LocalDate;
 import java.time.Period;
+
 public class Doctor extends Person {
     private String specialization;
     private LocalDate startedWorkingAt;
     private int yearsOfExperience;
+
+    public Doctor() {}
 
     public Doctor(String name, LocalDate birthDate, String gender,
                   String citizenship, String mail, String specialization, LocalDate startedWorkingAt) {
@@ -22,6 +24,14 @@ public class Doctor extends Person {
 
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
+    }
+
+    public LocalDate getStartedWorkingAt() {
+        return startedWorkingAt;
+    }
+
+    public void setStartedWorkingAt(LocalDate startedWorkingAt) {
+        this.startedWorkingAt = startedWorkingAt;
     }
 
     public int getYearsOfExperience() {
@@ -40,4 +50,3 @@ public class Doctor extends Person {
                 '}';
     }
 }
-

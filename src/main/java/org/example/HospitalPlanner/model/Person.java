@@ -24,6 +24,8 @@ public abstract class Person {
         this.mail = mail;
     }
 
+    public Person() {}
+
     public int getAge() {
         LocalDate currentDate = LocalDate.now();
         Period period = Period.between(birthDate, currentDate);
