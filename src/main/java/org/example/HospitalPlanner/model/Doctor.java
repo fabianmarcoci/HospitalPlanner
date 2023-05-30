@@ -1,8 +1,12 @@
 package org.example.HospitalPlanner.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.Period;
 
+@Entity
+@Table(name = "doctors")
 public class Doctor extends Person {
     private String specialization;
     private LocalDate startedWorkingAt;

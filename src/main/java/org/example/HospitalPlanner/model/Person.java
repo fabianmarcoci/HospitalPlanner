@@ -6,6 +6,7 @@ import java.time.Period;
 
 @Entity
 @Table(name = "persons")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

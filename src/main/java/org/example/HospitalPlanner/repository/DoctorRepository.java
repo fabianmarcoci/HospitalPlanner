@@ -1,4 +1,4 @@
-package Repository;
+package org.example.HospitalPlanner.repository;
 
 import org.example.HospitalPlanner.model.Doctor;
 import org.springframework.data.repository.CrudRepository;

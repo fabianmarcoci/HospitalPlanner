@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51ae6788-da8a-46f9-a608-a48290efce8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Repository/DoctorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/repository/DoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/model/Doctor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/HospitalPlanner/DoctorRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/HospitalPlanner/DoctorRepositoryTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +58,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\VG\Documents\GitHub\HospitalPlanner\HospitalPlanner\src\test\resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.HospitalPlanner" />
     </key>

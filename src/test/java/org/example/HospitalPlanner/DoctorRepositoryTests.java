@@ -1,8 +1,8 @@
 package org.example.HospitalPlanner;
 
-import Repository.DoctorRepository;
+import org.example.HospitalPlanner.repository.DoctorRepository;
 import org.example.HospitalPlanner.model.Doctor;
-import org.example.HospitalPlanner.model.Person;
+import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
@@ -23,7 +23,8 @@ public class DoctorRepositoryTests {
         doctor.setGender("male");
         doctor.setName("Gheras Vlad");
 
-        doctorRepository.save(doctor);
+          doctorRepository.save(doctor);
+
 
         Doctor found = doctorRepository.findById(doctor.getId()).orElse(null);
         assertThat(found).isEqualTo(doctor);

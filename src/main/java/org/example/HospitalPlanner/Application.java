@@ -9,10 +9,14 @@ import org.example.HospitalPlanner.service.network.Server;
 import org.example.HospitalPlanner.ui.MainFrame;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.swing.*;
 
 @SpringBootApplication
+@EnableJpaRepositories("org/example/HospitalPlanner/repository")
+@EntityScan("org.example.HospitalPlanner.model")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
