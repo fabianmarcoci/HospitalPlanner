@@ -169,15 +169,17 @@ public class MainFrame extends JFrame {
             switch (role) {
                 case "doctor":
                     // Open doctor form
+                    System.out.println("Doctor login succeed.");
                     break;
                 case "patient":
                     // Open patient form
+                    System.out.println("Patient login succeed.");
                     break;
                 default:
                     System.out.println("Failed to identify the role.");
             }
         } else {
-            System.out.println("Still in the login panel.");
+            System.out.println("Login failed.");
         }
     }
 

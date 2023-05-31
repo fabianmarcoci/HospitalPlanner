@@ -30,8 +30,14 @@ public class AccountManager {
 
             ResultSet resultSet = pstmt.executeQuery();
 
+            //hardcoded test:
+            String pass = "vlad10";
+            String hashedPassword = BCrypt.hashpw(pass, BCrypt.gensalt());
+            System.out.println(hashedPassword);
+
+
             if (resultSet.next()) {
-                String storedHashedPassword = resultSet.getString("password_hash");
+                String storedHashedPassword = resultSet.getString("password");
 
                 if (BCrypt.checkpw(password, storedHashedPassword)) {
                     logger.info("Login successful for user: " + username);
