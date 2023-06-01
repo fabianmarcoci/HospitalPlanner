@@ -1,6 +1,6 @@
 package org.example.HospitalPlanner.service.network;
 
-import org.example.HospitalPlanner.service.AccountManager;
+import org.example.HospitalPlanner.service.AccountCheck;
 import org.example.HospitalPlanner.config.ApplicationContextProvider;
 
 import java.io.BufferedReader;
@@ -25,8 +25,8 @@ public class ClientHandler implements Runnable {
             String username = in.readLine();
             String password = in.readLine();
 
-            AccountManager accountManager = ApplicationContextProvider.getApplicationContext().getBean(AccountManager.class);
-            String role = accountManager.submitLogin(username, password);
+            AccountCheck accountCheck = ApplicationContextProvider.getApplicationContext().getBean(AccountCheck.class);
+            String role = accountCheck.submitLogin(username, password);
 
             if (role != null) {
                 out.println(role);

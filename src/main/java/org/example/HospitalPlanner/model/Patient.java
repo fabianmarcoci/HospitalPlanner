@@ -1,12 +1,19 @@
 package org.example.HospitalPlanner.model;
-import org.example.HospitalPlanner.model.Person;
-
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
+@Entity
+@Table(name = "patient")
 public class Patient extends Person {
     private String disease;
 
-    public Patient(String name, LocalDate birthDate, String gender, String citizenship, String mail, String disease) {
-        super(name, birthDate, gender, citizenship, mail);
+    public Patient() {
+
+    }
+
+    public Patient(String name, LocalDate birthDate, String gender, String citizenship,
+                   String mail, String role, String disease) {
+        super(name, birthDate, gender, citizenship, mail, role);
         this.disease = disease;
     }
 

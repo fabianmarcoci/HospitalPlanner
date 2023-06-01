@@ -1,4 +1,4 @@
-package org.example.HospitalPlanner.service;
+package org.example.HospitalPlanner.service.modelService;
 
 import org.example.HospitalPlanner.model.Doctor;
 import org.example.HospitalPlanner.repository.DoctorRepository;
@@ -22,14 +22,14 @@ public class DoctorService {
         this.doctorRepository = doctorRepository;
     }
 
-    public boolean createDoctor(Doctor doctor) {
+    public Doctor createDoctor(Doctor doctor) {
         try {
             doctorRepository.save(doctor);
             logger.info("Doctor created successfully");
-            return true;
+            return doctor;
         } catch (DataAccessException e) {
             logger.error("Failed to create doctor", e);
-            return false;
+            return null;
         }
     }
 
