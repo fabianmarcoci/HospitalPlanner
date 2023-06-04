@@ -41,5 +41,19 @@ public class AccountCheck {
 
         return null;
     }
+
+    public String retrieveName(String username) {
+        Optional<Account> accountOpt = accountService.getAccountByUsername(username);
+
+        if(accountOpt.isPresent()){
+            Account account = accountOpt.get();
+            logger.info("Name retrieved successful for user: " + username);
+            return account.getPerson().getName();
+        } else {
+            logger.info("Failed to retrieve the name");
+        }
+
+        return null;
+    }
 }
 

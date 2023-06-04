@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="51ae6788-da8a-46f9-a608-a48290efce8c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/doctorForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/DoctorForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/patientForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/PatientForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/FXWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/FXWindowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/AccountCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/AccountCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/DoctorForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/DoctorForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/PatientForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/PatientForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -171,7 +170,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/MainFrame.java</url>
-          <line>184</line>
+          <line>187</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
