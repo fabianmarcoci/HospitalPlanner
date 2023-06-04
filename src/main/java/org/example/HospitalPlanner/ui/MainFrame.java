@@ -1,5 +1,8 @@
 package org.example.HospitalPlanner.ui;
 
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import org.example.HospitalPlanner.manager.FXWindowManager;
 import org.example.HospitalPlanner.service.SendMail;
 import org.example.HospitalPlanner.service.network.Client;
 
@@ -166,14 +169,21 @@ public class MainFrame extends JFrame {
         client.closeConnection();
 
         if (role != null) {
+            // Get the JavaFXApp instance
+            JavaFXApp app = JavaFXApp.getInstance();
+
+            // Get the window manager
+            FXWindowManager windowManager = app.getWindowManager();
+
+            // Use the window manager to open the correct form
             switch (role) {
                 case "doctor":
-                    // Open doctor form
-                    System.out.println("Doctor login succeed.");
+                    this.dispose();
+                    Platform.runLater(() -> windowManager.openDoctor(username));
                     break;
                 case "patient":
-                    // Open patient form
-                    System.out.println("Patient login succeed.");
+                    this.dispose();
+                    Platform.runLater(() -> windowManager.openPatient(username));
                     break;
                 default:
                     System.out.println("Failed to identify the role.");
@@ -182,6 +192,7 @@ public class MainFrame extends JFrame {
             System.out.println("Login failed.");
         }
     }
+
 
 
     private void addClickListenerToLabel(JLabel label, String actionCommand) {
