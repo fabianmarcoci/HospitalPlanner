@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51ae6788-da8a-46f9-a608-a48290efce8c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/FXWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/FXWindowManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/AccountCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/AccountCheck.java" afterDir="false" />
+    <list default="true" id="48bbcec8-30f1-4f85-b6f7-181d5720218c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/DoctorForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/DoctorForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/PatientForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/PatientForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

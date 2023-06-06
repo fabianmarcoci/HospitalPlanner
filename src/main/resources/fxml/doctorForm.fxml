@@ -23,7 +23,7 @@
             </image>
         </ImageView>
         <Label AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="115.0" style="-fx-font-size: 14; -fx-font-family: 'Arial'; -fx-text-fill: white;" text="Logged in as username" />
-        <Label fx:id="scheduleLabel" AnchorPane.topAnchor="101.0" style="-fx-font-size: 28; -fx-font-family: 'Roboto Mono'; -fx-text-fill: white;" text="Schedule">
+        <Label fx:id="scheduleLabel" AnchorPane.topAnchor="101.0" style="-fx-font-size: 28; -fx-font-family: 'Roboto Mono'; -fx-text-fill: white;" text="Schedule" >
             <font>
                 <Font name="Roboto Mono" size="28.0" />
             </font>

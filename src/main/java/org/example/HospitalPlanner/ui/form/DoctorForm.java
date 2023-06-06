@@ -1,9 +1,18 @@
 package org.example.HospitalPlanner.ui.form;
 
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import org.springframework.stereotype.Component;
+
+import java.awt.*;
 
 @Component
 public class DoctorForm extends Form {
+
+    @FXML
+    private AnchorPane doctorForm;
+    @FXML
+    private Label scheduleLabel;
 
     @Override
     public String getFxmlPath() {
@@ -14,4 +23,6 @@ public class DoctorForm extends Form {
     public String getTitle() {
         return "Doctor schedule";
     }
+
+
 }
