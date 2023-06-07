@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.Image?>
-<AnchorPane id="patientForm" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: DarkCyan;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.HospitalPlanner.ui.form.DoctorForm">
+<AnchorPane id="patientForm" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: DarkCyan;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.HospitalPlanner.ui.form.PatientForm">
     <children>
         <Button AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="52.0" mnemonicParsing="false" style="-fx-background-color: HoneyDew; -fx-text-fill: DarkCyan; -fx-border-radius: 15; -fx-border-color: white;" text="Logout">
             <font>

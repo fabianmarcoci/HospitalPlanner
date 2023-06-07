@@ -14,6 +14,7 @@ public abstract class Form {
     @Autowired
     protected ConfigurableApplicationContext context;
     protected String name;
+    protected int id;
 
     public void createForm() {
         init();
@@ -49,4 +50,8 @@ public abstract class Form {
     public void foundName(String name) {
         this.name = name;
     }
+    public void foundId(int id) {
+        this.id = id;
+    }
+
 }

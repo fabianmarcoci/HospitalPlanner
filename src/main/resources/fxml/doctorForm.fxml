@@ -17,35 +17,70 @@
                 <Font name="System Italic" size="15.0" />
             </font>
         </Button>
-        <ImageView fitHeight="106.0" fitWidth="128.0" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="9.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="userImageView" fitHeight="106.0" fitWidth="128.0" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="9.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@/img/doctorform6.jpg" />
             </image>
         </ImageView>
-        <Label AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="115.0" style="-fx-font-size: 14; -fx-font-family: 'Arial'; -fx-text-fill: white;" text="Logged in as username" />
+        <Label fx:id="usernameLabel" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="115.0" style="-fx-font-size: 14; -fx-font-family: 'Arial'; -fx-text-fill: white;" text="Logged in as username" />
         <Label fx:id="scheduleLabel" AnchorPane.topAnchor="101.0" style="-fx-font-size: 28; -fx-font-family: 'Roboto Mono'; -fx-text-fill: white;" text="Schedule" >
             <font>
                 <Font name="Roboto Mono" size="28.0" />
             </font>
         </Label>
-        <TableView AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="185.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="100.0" prefHeight="150.0" prefWidth="400.0">
-            <columns>
-                <TableColumn prefWidth="75.0" text="Day">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="day" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn prefWidth="75.0" text="Time">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="time" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn prefWidth="100.0" text="Appointment">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="appointment" />
-                    </cellValueFactory>
-                </TableColumn>
-            </columns>
+        <TableView fx:id="scheduleTableView" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="185.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="100.0" prefHeight="150.0" prefWidth="400.0">
+        <columns>
+            <TableColumn fx:id="dayColumn" prefWidth="75.0" text="Day/Time">
+                <cellValueFactory>
+                    <PropertyValueFactory property="day" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="9:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time0" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="10:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time1" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="11:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time2" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="12:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time3" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="13:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time4" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="14:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time5" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="15:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time6" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="16:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time7" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="17:00">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time8" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
         </TableView>
     </children>
 </AnchorPane>

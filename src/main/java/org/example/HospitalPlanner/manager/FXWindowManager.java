@@ -19,14 +19,18 @@ public class FXWindowManager {
     public void openDoctor(String username) {
         AccountCheck accountCheck = ApplicationContextProvider.getApplicationContext().getBean(AccountCheck.class);
         String name = accountCheck.retrieveName(username);
+        int id = accountCheck.retrieveId(username);
         doctorForm.foundName(name);
+        doctorForm.foundId(id);
         doctorForm.createForm();
     }
 
     public void openPatient(String username) {
         AccountCheck accountCheck = ApplicationContextProvider.getApplicationContext().getBean(AccountCheck.class);
         String name = accountCheck.retrieveName(username);
+        int id = accountCheck.retrieveId(username);
         patientForm.foundName(name);
+        patientForm.foundId(id);
         patientForm.createForm();
     }
 }
