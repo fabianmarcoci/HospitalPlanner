@@ -89,6 +89,12 @@ public class HospitalManager {
                 schedule.setPatient(newPatient);
                 scheduleService.createAppointment(schedule);
             } else {
+                Schedule schedule = new Schedule();
+                schedule.setDoctor(newDoctor);
+                schedule.setDay(day);
+                schedule.setTimeSlot(timeSlot);
+                schedule.setPatient(newPatient);
+                scheduleService.createAppointment(schedule);
                 System.out.println("Couldn't find the schedule by doctor and day.");
             }
         } else {
@@ -132,6 +138,8 @@ public class HospitalManager {
 //                fabianBirthDate, "masculine", "romanian",
 //                "marcocifabian16@gmail.com", "lung");
         listPatients();
+//        createAppointment(19, "06/09/2023", "11:00",  20);
+
 
         new Thread(() -> {
             Server server = new Server();

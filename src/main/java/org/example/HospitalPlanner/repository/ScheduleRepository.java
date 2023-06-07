@@ -11,6 +11,6 @@ public interface ScheduleRepository extends CrudRepository<Schedule, Integer> {
 
     Optional<List<Schedule>> findByDoctor(Doctor doctor);
     Optional<Schedule> findByDoctorAndDay(Doctor doctor, String day);
-
+    List<Schedule> findByDoctorId(int doctorId);
     Optional<Schedule> findByDoctorAndDayAndTimeSlot(Doctor doctor, String day, String timeSlot);
 }

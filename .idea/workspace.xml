@@ -6,13 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="48bbcec8-30f1-4f85-b6f7-181d5720218c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/FXWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/FXWindowManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/HospitalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/manager/HospitalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/AccountCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/AccountCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/model/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/repository/ScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/repository/ScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/modelService/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/service/modelService/ScheduleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/DoctorForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/DoctorForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HospitalPlanner/ui/form/Form.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/doctorForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/doctorForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/patientForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/patientForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

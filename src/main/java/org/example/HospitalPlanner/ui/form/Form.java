@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.HospitalPlanner.service.modelService.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 
@@ -13,6 +14,8 @@ import java.io.IOException;
 public abstract class Form {
     @Autowired
     protected ConfigurableApplicationContext context;
+    @Autowired
+    protected ScheduleService scheduleService;
     protected String name;
     protected int id;
 

@@ -4,6 +4,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import javax.persistence.*;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Table(name = "schedule")
@@ -12,19 +14,15 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
-
     private String day;
-
     @Column(name = "time_slot")
     private String timeSlot;
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
-
     @Transient
     private String[] times = new String[9]; // 9 slots from 9:00 to 17:00
 
@@ -36,6 +34,15 @@ public class Schedule {
     }
 
     public Schedule() {
+    }
+
+    public int getTimeSlotIndex(String timeSlot) {
+        LocalTime startTime = LocalTime.of(9, 0);
+        LocalTime inputTime = LocalTime.parse(timeSlot);
+
+        long hoursBetween = ChronoUnit.HOURS.between(startTime, inputTime);
+
+        return (int) hoursBetween;
     }
 
     public void setDoctor(Doctor doctor) {

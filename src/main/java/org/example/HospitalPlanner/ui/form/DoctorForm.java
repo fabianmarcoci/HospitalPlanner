@@ -16,13 +16,16 @@ import org.springframework.stereotype.Component;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.image.ImageView;
 
+import javax.persistence.Access;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class DoctorForm extends Form {
-
     @FXML
     private AnchorPane doctorForm;
     @FXML
@@ -33,8 +36,6 @@ public class DoctorForm extends Form {
     private TableView<Schedule> scheduleTableView;
     @FXML
     private TableColumn<Schedule, String> dayColumn;
-    // add other TableColumn FXML injections as necessary
-
 
     @Override
     public String getFxmlPath() {
@@ -59,12 +60,30 @@ public class DoctorForm extends Form {
 
                     ObservableList<Schedule> data = FXCollections.observableArrayList();
 
+
+                    List<Schedule> doctorSchedules = scheduleService.getSchedulesByDoctorId(id);
+
+                    Map<String, String[]> schedulesMap = new HashMap<>();
+                    for (Schedule schedule : doctorSchedules) {
+                        String day = schedule.getDay();
+                        String timeSlot = schedule.getTimeSlot();
+                        String patientName = schedule.getPatient().getName();
+
+                        String[] times = schedulesMap.getOrDefault(day, new String[9]);
+                        int timeSlotIndex = schedule.getTimeSlotIndex(timeSlot);
+                        if (timeSlotIndex != -1) {
+                            times[timeSlotIndex] = patientName;
+                        }
+
+                        schedulesMap.put(day, times);
+                    }
+
                     for (int i = 1; i <= 23; i++) {
                         LocalDateTime nextDay = now.plusDays(i);
-                        String[] times = new String[9];
-                        Arrays.fill(times, "");
+                        String[] times = schedulesMap.getOrDefault(dtf.format(nextDay), new String[9]);
                         data.add(new Schedule(dtf.format(nextDay), times));
                     }
+
                     dayColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
                         public ObservableValue<String> call(TableColumn.CellDataFeatures<Schedule, String> p) {
                             return new ReadOnlyObjectWrapper(p.getValue().getDay());
@@ -76,4 +95,5 @@ public class DoctorForm extends Form {
             }
         });
     }
+
 }

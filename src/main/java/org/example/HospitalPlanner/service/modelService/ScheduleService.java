@@ -82,6 +82,16 @@ public class ScheduleService {
             throw e;
         }
     }
+
+    public List<Schedule> getSchedulesByDoctorId(int doctorId) {
+        try {
+            return scheduleRepository.findByDoctorId(doctorId);
+        } catch (DataAccessException e) {
+            logger.error("Failed to retrieve schedules for doctor " + doctorId);
+            throw e;
+        }
+    }
+
     public boolean updateSchedule(Schedule schedule) {
         try {
             if(scheduleRepository.existsById(schedule.getId())) {
